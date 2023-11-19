@@ -172,7 +172,7 @@ export default function Party() {
                             {
                                 partyMemberInfo.map((v, i) => {
                                     return (
-                                        <div className="flex w-full border-cyan-600 border-l-8  gap-5 p-5 bg-slate-50 rounded-md items-baseline">
+                                        <div className="flex w-full border-cyan-600 border-l-8  gap-5 p-5 bg-slate-50 rounded-md items-baseline" key={i}>
                                             <div className="flex gap-5 items-baseline w-[20%]">
                                                 <div className="w-[50%] flex justify-between items-baseline">
                                                     <div></div>

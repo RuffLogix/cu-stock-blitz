@@ -8,7 +8,7 @@ export default function Home() {
             <div></div>
             <div className="flex flex-col gap-5">
               {/* <h1 className="text-2xl bg-slate-800 text-white w-fit px-3 py-1 rounded-md">CU-Stock Blitz</h1> */}
-              <p className="text-5xl">วันนี้... <br/>คุณติด"ดอย"แล้วหรือยัง ?</p>
+              <p className="text-5xl">วันนี้... <br/>คุณติด&quot;ดอย&quot;แล้วหรือยัง ?</p>
               <div className="flex gap-3">
                   <p className="bg-slate-800 text-white"># การลงทุน</p>
                   <p className="bg-slate-800 text-white"># ติดดอย</p>
