@@ -29,7 +29,7 @@ export default function Party() {
 
         bodyFormData.append('user_address', localStorage.getItem('address') as string)
 
-        let data = (await axios.post('http://localhost:3000/api/party', bodyFormData)).data
+        let data = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/party', bodyFormData)).data
 
         console.log(data.party_data)
         console.log(data.user_list)
@@ -58,7 +58,7 @@ export default function Party() {
         bodyFormData.append('creator_address', localStorage.getItem('address') as string)
         bodyFormData.append('creator_name', localStorage.getItem('username') as string)
 
-        const { status, party_id } = (await axios.post('http://localhost:3000/api/party/create', bodyFormData)).data;
+        const { status, party_id } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/party/create', bodyFormData)).data;
 
         if (status) {
             alert('สร้าง party สำเร็จ!')
@@ -74,7 +74,7 @@ export default function Party() {
         bodyFormData.append('creator_address', creatorAddress)
         bodyFormData.append('user_address', localStorage.getItem('address') as string)
 
-        const { status, party_id } = (await axios.post('http://localhost:3000/api/party/join', bodyFormData)).data
+        const { status, party_id } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/party/join', bodyFormData)).data
 
         if (status) {
             alert('เข้าร่วม Party สำเร็จ')
@@ -90,7 +90,7 @@ export default function Party() {
 
         bodyFormData.append('user_address', localStorage.getItem('address') as string)
 
-        let { status } = (await axios.post('http://localhost:3000/api/party/leave', bodyFormData)).data
+        let { status } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/party/leave', bodyFormData)).data
 
         if (status) {
             localStorage.setItem('party_id', '0')

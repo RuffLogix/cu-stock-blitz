@@ -42,12 +42,12 @@ export default function Stock() {
 
         bodyFormData.append('user_address', localStorage.getItem('address') as string)
 
-        const { data } = await axios.post('http://localhost:3000/api/stock/history', bodyFormData)
+        const { data } = await axios.post('https://cu-stock-blitz.vercel.app/stock/api/stock/history', bodyFormData)
         setStockHistory(data.stock_history)
     }
 
     async function getStockInfo() {
-        const { data } = await axios.get('http://localhost:3000/api/stock/prices')
+        const { data } = await axios.get('https://cu-stock-blitz.vercel.app/stock/api/stock/prices')
         setStockInfo(data)
     }
 
@@ -59,7 +59,7 @@ export default function Stock() {
     }, [])
 
     async function getStock(stock_id: number) {
-        const { data } = await axios.get(`http://localhost:3000/api/stock/price?stock=${stock_id}&user_address=${localStorage.getItem('address')}`)
+        const { data } = await axios.get(`https://cu-stock-blitz.vercel.app/stock/api/stock/price?stock=${stock_id}&user_address=${localStorage.getItem('address')}`)
 
         setStockId(data["stock_id"])
         setStockName(data["full_name"])
@@ -77,7 +77,7 @@ export default function Stock() {
         bodyFormData.append('stock_id', stockId.toString())
         bodyFormData.append('amount', stockAmount.toString())
 
-        let { status, new_balance } = (await axios.post('http://localhost:3000/api/stock/buy', bodyFormData)).data
+        let { status, new_balance } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/stock/buy', bodyFormData)).data
 
         if (!status) {
             alert('ทำรายการล้มเหลว กรุณาลองใหม่อีกครั้ง')
@@ -95,7 +95,7 @@ export default function Stock() {
         bodyFormData.append('stock_id', stockId.toString())
         bodyFormData.append('amount', stockAmount.toString())
 
-        let { status, new_balance } = (await axios.post('http://localhost:3000/api/stock/sell', bodyFormData)).data
+        let { status, new_balance } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/stock/sell', bodyFormData)).data
 
         if (!status) {
             alert('ทำรายการล้มเหลว กรุณาลองใหม่อีกครั้ง')
@@ -113,7 +113,7 @@ export default function Stock() {
         bodyFormData.append('receiver', transferAddress)
         bodyFormData.append('amount', transferAmount.toString())
         
-        let { status, new_balance } = (await axios.post('http://localhost:3000/api/stock/transfer', bodyFormData)).data
+        let { status, new_balance } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/stock/transfer', bodyFormData)).data
 
         if (!status) {
             alert('ทำรายการล้มเหลว กรุณาลองใหม่อีกครั้ง')
