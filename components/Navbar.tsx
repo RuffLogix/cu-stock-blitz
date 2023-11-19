@@ -24,7 +24,7 @@ export default function Navbar() {
 
             bodyFormData.append('token', token as string)
 
-            const { status } = (await axios.post('http://localhost:3000/api/auth/verify', bodyFormData)).data
+            const { status } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/auth/verify', bodyFormData)).data
 
             if (!status) { localStorage.clear() }
 
@@ -45,7 +45,7 @@ export default function Navbar() {
         bodyFormData.append('username', username)
         bodyFormData.append('password', password)
 
-        let { token, status, address, balance, party_id } = (await axios.post('http://localhost:3000/api/auth/login', bodyFormData)).data
+        let { token, status, address, balance, party_id } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/auth/login', bodyFormData)).data
 
         if (status) {
             localStorage.setItem('token', token)
@@ -70,7 +70,7 @@ export default function Navbar() {
         bodyFormData.append('username', username)
         bodyFormData.append('password', password)
 
-        let { status } = (await axios.post('http://localhost:3000/api/auth/register', bodyFormData)).data
+        let { status } = (await axios.post('https://cu-stock-blitz.vercel.app/stock/api/auth/register', bodyFormData)).data
 
         if (status) {
             alert('สร้างบัญชีสำเร็จ!')
